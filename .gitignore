@@ -1,0 +1,7 @@
+vendor/
+myapp/tmp/cache/views/*
+myapp/tmp/cache/models/*
+myapp/tmp/cache/persistent/*
+myapp/tmp/sessions/*
+myapp/tmp/tests/*
+myapp/tmp/logs/*
