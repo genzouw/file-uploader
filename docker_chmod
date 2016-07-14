@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -u
+set -e
+set -o noclobber
+
+readonly SCRIPT_DIR_PATH=$(dirname ${BASH_SOURCE:-});
+cd "${SCRIPT_DIR_PATH}"
+
+find . -type d -print0| xargs --null -P0 sudo chmod o+x
+find . -type d -print0| xargs --null -P0 sudo chmod o+r
+find . -type f -print0| xargs --null -P0 sudo chmod o+r
+find myapp/tmp/cache -type f -print0| xargs --null -P0 sudo chmod o+w
+
