@@ -1,0 +1,23 @@
+{
+  "name": "xxx",
+  "version": "0.0.0",
+  "authors": [
+    "genzouw <genzouw@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery-ui": "~1.11.4",
+    "sprintf": "~1.0.3",
+    "lightbox2": "^2.8.2"
+  },
+  "devDependencies": {
+  }
+}

@@ -6,8 +6,10 @@ set -o noclobber
 readonly SCRIPT_DIR_PATH=$(dirname ${BASH_SOURCE:-});
 cd "${SCRIPT_DIR_PATH}"
 
-find . -type d -print0| xargs --null -P0 sudo chmod o+x
-find . -type d -print0| xargs --null -P0 sudo chmod o+r
-find . -type f -print0| xargs --null -P0 sudo chmod o+r
-find myapp/tmp/cache -type f -print0| xargs --null -P0 sudo chmod o+w
+sudo chmod o+w myapp
+sudo chmod o+w myapp/Config
+find . -type d -print0| xargs --null -P0 -n 50 sudo chmod o+x
+find . -type d -print0| xargs --null -P0 -n 50 sudo chmod o+r
+find . -type f -print0| xargs --null -P0 -n 50 sudo chmod o+r
+find myapp/tmp/cache -type f -print0| xargs --null -P0 -n 50 sudo chmod o+w
 

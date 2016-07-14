@@ -5,7 +5,7 @@
  * @since         CakePHP(tm) v 0.10.0.1076
  */
 
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+$cakeDescription = __d('cake_dev', '画像アップローダ');
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,14 +16,23 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<?php echo $this->fetch('title'); ?>
 	</title>
 	<?php
-		echo $this->Html->meta('icon');
-
+		// echo $this->Html->meta('icon');
 		echo $this->Html->css('cake.generic');
-
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/myapp/bower_components/lightbox2/dist/css/lightbox.css" />
+    <!-- endbower -->
+    <style type="text/css"  media="all">
+	img.thumbnail {
+		width: 15em;
+	}
+    #footer {
+        text-align: center;
+    }
+    </style>
 </head>
 <body>
 	<div id="container">
@@ -37,12 +46,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
+			<p>Copyright © 2014-2016 genzouw All Rights Reserved.</p>
+			<p>( twitter:<a href="https://twitter.com/genzouw">@genzouw</a> , facebook:<a href="https://www.facebook.com/genzouw">genzouw</a>, mailto:<a href="mailto:genzouw@gmail.com">genzouw@gmail.com</a> )</p>
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
