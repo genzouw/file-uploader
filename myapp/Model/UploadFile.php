@@ -92,4 +92,9 @@ class UploadFile extends AppModel
 
         return parent::beforeValidate($options);
     }
+
+    public function generateHash(array $data)
+    {
+        return hash('sha256', serialize($data));
+    }
 }

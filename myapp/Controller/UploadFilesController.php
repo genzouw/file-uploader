@@ -47,6 +47,11 @@ class UploadFilesController extends AppController
     public function index()
     {
         $this->UploadFile->recursive = 0;
+        $uploadFiles = $this->Paginator->paginate();
+        $this->response->etag($this->UploadFile->generateHash($uploadFiles));
+        if ($this->response->checkNotModified($this->request)) {
+            return $this->response;
+        }
         $this->set('uploadFiles', $this->Paginator->paginate());
     }
 
