@@ -144,7 +144,7 @@ Configure::write('debug', 2);
 /**
  * Turn off all caching application-wide.
  */
-//Configure::write('Cache.disable', true);
+Configure::write('Cache.disable', false);
 
 /**
  * Enable cache checking.
@@ -154,7 +154,7 @@ Configure::write('debug', 2);
  * You can either set it controller-wide by setting public $cacheAction = true,
  * or in each action using $this->cacheAction = true.
  */
-	//Configure::write('Cache.check', true);
+Configure::write('Cache.check', true);
 
 /**
  * Enable cache view prefixes.
@@ -330,7 +330,7 @@ $engine = 'File';
 // In development mode, caches should expire quickly.
 $duration = '+999 days';
 if (Configure::read('debug') > 0) {
-	$duration = '+10 seconds';
+	$duration = '+1 seconds';
 }
 
 // Prefix each application on the same server with a different string, to avoid Memcache and APC conflicts.
