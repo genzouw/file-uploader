@@ -26,11 +26,14 @@ $cakeDescription = __d('cake_dev', '画像アップローダ');
     <link rel="stylesheet" href="/myapp/bower_components/lightbox2/dist/css/lightbox.css" />
     <!-- endbower -->
     <style type="text/css"  media="all">
-	img.thumbnail {
-		width: 15em;
-	}
+    img.thumbnail {
+        width: 15em;
+    }
     #footer {
         text-align: center;
+    }
+    #header h1 {
+        background-size: contain;
     }
     </style>
 </head>
