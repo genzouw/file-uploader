@@ -21,5 +21,13 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller
 {
-    // public $components = array('DebugKit.Toolbar');
+    public $components = array();
+
+    public function __construct($request = null, $response = null)
+    {
+        parent::__construct($request, $response);
+        if (Configure::read('debug') > 0) {
+            $this->components[] = 'DebugKit.Toolbar';
+        }
+    }
 }
