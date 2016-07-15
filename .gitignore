@@ -7,3 +7,4 @@ myapp/tmp/tests/*
 myapp/tmp/logs/*
 myapp/tmp/cache/cake_toolbar_cache
 myapp/webroot/php_errors.log
+**/.tags
