@@ -23,7 +23,7 @@ $cakeDescription = __d('cake_dev', '画像アップローダ');
 		echo $this->fetch('script');
 	?>
     <!-- bower:css -->
-    <link rel="stylesheet" href="/bower_components/lightbox2/dist/css/lightbox.css" />
+    <link rel="stylesheet" href="/<?php echo APP_DIR ?>/bower_components/lightbox2/dist/css/lightbox.css" />
     <!-- endbower -->
     <style type="text/css"  media="all">
     img.thumbnail {

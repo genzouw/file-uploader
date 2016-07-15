@@ -56,11 +56,11 @@
 	</ul>
 </div>
 <!-- bower:js -->
-<script src="/bower_components/jquery/dist/jquery.js"></script>
-<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="/bower_components/jquery-ui/jquery-ui.js"></script>
-<script src="/bower_components/sprintf/src/sprintf.js"></script>
-<script src="/bower_components/lightbox2/dist/js/lightbox.js"></script>
+<script src="/<?php echo APP_DIR ?>/bower_components/jquery/dist/jquery.js"></script>
+<script src="/<?php echo APP_DIR ?>/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/<?php echo APP_DIR ?>/bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="/<?php echo APP_DIR ?>/bower_components/sprintf/src/sprintf.js"></script>
+<script src="/<?php echo APP_DIR ?>/bower_components/lightbox2/dist/js/lightbox.js"></script>
 <!-- endbower -->
 <script>
 "use strict";
