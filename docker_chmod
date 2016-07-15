@@ -8,8 +8,10 @@ cd "${SCRIPT_DIR_PATH}"
 
 sudo chmod o+w myapp
 sudo chmod o+w myapp/Config
+sudo chmod o+w myapp/Config/*.sqlite3
 find . -type d -print0| xargs --null -P0 -n 50 sudo chmod o+x
 find . -type d -print0| xargs --null -P0 -n 50 sudo chmod o+r
 find . -type f -print0| xargs --null -P0 -n 50 sudo chmod o+r
-find myapp/tmp/cache -type f -print0| xargs --null -P0 -n 50 sudo chmod o+w
+find myapp/tmp/ -type d -print0| xargs --null -P0 -n 50 sudo chmod o+rwx
+find myapp/tmp/ -type f -print0| xargs --null -P0 -n 50 sudo chmod o+rw
 
