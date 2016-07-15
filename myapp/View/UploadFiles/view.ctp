@@ -6,14 +6,24 @@
 			<?php echo h($uploadFile['UploadFile']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('File Path'); ?></dt>
+		<dt><?php echo __('Comment'); ?></dt>
 		<dd>
-			<?php echo h($uploadFile['UploadFile']['file_path']); ?>
+			<?php echo h($uploadFile['UploadFile']['comment']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('File Content'); ?></dt>
+		<dt><?php echo __('Base64 Content'); ?></dt>
 		<dd>
-			<?php echo h($uploadFile['UploadFile']['file_content']); ?>
+            <img src="data:image/png;base64,<?php echo h($uploadFile['UploadFile']['base64_content']); ?>" class="thumbnail" />
+			&nbsp;
+		</dd>
+		<dt><?php echo __('File Name'); ?></dt>
+		<dd>
+            <a href="../getFile/<?php echo h($uploadFile['UploadFile']['file_name']); ?>"><?php echo h($uploadFile['UploadFile']['file_name']); ?></a>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('File Size'); ?></dt>
+		<dd>
+			<?php echo h($uploadFile['UploadFile']['file_size']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Created At'); ?></dt>
@@ -21,18 +31,11 @@
 			<?php echo h($uploadFile['UploadFile']['created_at']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Updated At'); ?></dt>
-		<dd>
-			<?php echo h($uploadFile['UploadFile']['updated_at']); ?>
-			&nbsp;
-		</dd>
 	</dl>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Upload File'), array('action' => 'edit', $uploadFile['UploadFile']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Upload File'), array('action' => 'delete', $uploadFile['UploadFile']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $uploadFile['UploadFile']['id']))); ?> </li>
 		<li><?php echo $this->Html->link(__('List Upload Files'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Upload File'), array('action' => 'add')); ?> </li>
 	</ul>

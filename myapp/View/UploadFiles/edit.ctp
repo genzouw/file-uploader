@@ -4,10 +4,15 @@
 		<legend><?php echo __('Edit Upload File'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('file_path');
-		echo $this->Form->input('file_content');
+		echo $this->Form->input('comment');
+		echo $this->Form->input('remote_address');
+		echo $this->Form->input('base64_content');
+		echo $this->Form->input('mime_type');
+		echo $this->Form->input('file_name');
+		echo $this->Form->input('file_size');
 		echo $this->Form->input('created_at');
 		echo $this->Form->input('updated_at');
+		echo $this->Form->input('origin_file_name');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

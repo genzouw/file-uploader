@@ -12,13 +12,6 @@ class UploadFilesController extends AppController
 {
 
     /**
-     * Scaffold
-     *
-     * @type mixed
-     */
-    // public $scaffold;
-
-    /**
      * Components
      *
      * @type array
@@ -55,6 +48,22 @@ class UploadFilesController extends AppController
             }
         }
         $this->set('uploadFiles', $this->Paginator->paginate());
+    }
+
+    /**
+     * view method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function view($id = null)
+    {
+        if (!$this->UploadFile->exists($id)) {
+            throw new NotFoundException(__('Invalid upload file'));
+        }
+        $options = array('conditions' => array('UploadFile.' . $this->UploadFile->primaryKey => $id));
+        $this->set('uploadFile', $this->UploadFile->find('first', $options));
     }
 
     /**
@@ -98,5 +107,27 @@ class UploadFilesController extends AppController
             $options = array('conditions' => array('UploadFile.' . $this->UploadFile->primaryKey => $id));
             $this->request->data = $this->UploadFile->find('first', $options);
         }
+    }
+
+    public function getFile($fileName = null)
+    {
+        $this->autoRender = false;
+
+        $data = $this->UploadFile->find('first', array(
+            'conditions' => array(
+                'file_name' => $fileName,
+            ),
+        ));
+
+        if (empty($data)) {
+            throw new NotFoundException(__('Invalid upload file'));
+        }
+        // echo '<pre>'; var_dump($data); echo '</pre>';die();
+
+        $this->response->type($data['UploadFile']['mime_type']);
+        $this->response->download($data['UploadFile']['file_name']);
+
+        // $this->response->
+        $this->response->body(base64_decode($data['UploadFile']['base64_content']));
     }
 }

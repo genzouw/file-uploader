@@ -8,7 +8,7 @@
 			<th><?php echo $this->Paginator->sort('base64_content'); ?></th>
 			<th><?php echo $this->Paginator->sort('created_at'); ?></th>
 			<!-- <th><?php echo $this->Paginator->sort('updated_at'); ?></th> -->
-			<!-- <th class="actions"><?php echo __('Actions'); ?></th> -->
+			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -21,9 +21,7 @@
         </td>
 		<td><?php echo h($uploadFile['UploadFile']['created_at']); ?>&nbsp;</td>
 		<td class="actions">
-            <?php
-            // echo $this->Html->link(__('View'), array('action' => 'view', $uploadFile['UploadFile']['id']));
-            ?>
+            <?php echo $this->Html->link(__('View'), array('action' => 'view', $uploadFile['UploadFile']['id'])); ?>
             <?php
             // echo $this->Html->link(__('Edit'), array('action' => 'edit', $uploadFile['UploadFile']['id']));
             ?>

@@ -79,15 +79,17 @@ class UploadFile extends AppModel
         if (
             isset($modelData['upload_file']['tmp_name']) &&
             !empty($modelData['upload_file']['tmp_name']) &&
-            preg_match ( '/\Aimage.*\z/u',  $modelData['upload_file']['type'])
+            preg_match('/\Aimage.*\z/u',  $modelData['upload_file']['type'])
         ) {
             $file = $modelData['upload_file'];
 
             $fileContent = file_get_contents($modelData['upload_file']['tmp_name']);
             $modelData['base64_content'] = base64_encode($fileContent);
             $modelData['mime_type'] = $modelData['upload_file']['type'];
-            $modelData['file_name'] = $modelData['upload_file']['name'];
+            $modelData['origin_file_name'] = $modelData['upload_file']['name'];
+            $modelData['file_name'] = hash('sha256', $fileContent) . preg_replace('/\Aimage\//su', '.', $modelData['mime_type']);
             $modelData['file_size'] = $modelData['upload_file']['size'];
+            $modelData['remote_address'] = $_SERVER['REMOTE_ADDR'];
         }
 
         return parent::beforeValidate($options);
