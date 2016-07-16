@@ -125,7 +125,6 @@ class UploadFilesController extends AppController
         // echo '<pre>'; var_dump($data); echo '</pre>';die();
 
         $this->response->type($data['UploadFile']['mime_type']);
-        $this->response->download($data['UploadFile']['file_name']);
 
         // $this->response->
         $this->response->body(base64_decode($data['UploadFile']['base64_content']));
