@@ -8,11 +8,12 @@ RUN yum install -y \
 ;
 
 RUN yum install -y \
-    vim \
+    git \
     httpd \
+    vim \
 ;
 
-RUN yum install -y --enablerepo=remi-php56 \
+RUN yum install -y --enablerepo=remi-php70 \
     php \
     php-cli \
     php-common \
@@ -30,7 +31,6 @@ RUN yum install -y --enablerepo=remi-php56 \
     php-pear \
     php-pecl-ssh2 \
     php-pecl-xdebug \
-    php-pecl-xhprof \
     php-pgsql \
     php-xml \
     php-xmlrpc \
@@ -47,5 +47,11 @@ RUN sed -i 's#^[^d]*mbstring.internal_encoding *= *#mbstring.internal_encoding =
 RUN sed -i 's#^ *AllowOverride None#AllowOverride All#g' /etc/httpd/conf/httpd.conf
 
 RUN echo 'set -o vi' >> ~/.bashrc
+
+RUN cd /usr/local/bin; php -r "readfile('https://getcomposer.org/installer');" | php
+RUN chmod u+x /usr/local/bin/composer.phar
+RUN cd /usr/local/bin; ln -s composer.phar composer
+
+RUN composer global require "hirak/prestissimo"
 
 CMD service httpd start && /bin/bash

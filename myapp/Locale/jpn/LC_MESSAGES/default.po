@@ -108,7 +108,7 @@ msgid "Base64 Content"
 msgstr "イメージ"
 
 msgid "Created At"
-msgstr "アップロード日時"
+msgstr "UP日時"
 
 msgid "View"
 msgstr "詳細"
