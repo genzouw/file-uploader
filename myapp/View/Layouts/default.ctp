@@ -22,10 +22,9 @@ $cakeDescription = __d('cake_dev', '画像アップローダ');
 		// echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-    <?php $baseUrl = ''; ?>
     <!-- bower:css -->
-    <link rel="stylesheet" href="<?php echo $baseUrl ?>/bower_components/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?php echo $baseUrl ?>/bower_components/lightbox2/dist/css/lightbox.css" />
+    <link rel="stylesheet" href="<?php echo $this->Html->webroot; ?>./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<?php echo $this->Html->webroot; ?>./bower_components/lightbox2/dist/css/lightbox.css" />
     <!-- endbower -->
     <style type="text/css"  media="all">
     img.thumbnail {
@@ -48,7 +47,7 @@ $cakeDescription = __d('cake_dev', '画像アップローダ');
       ga('send', 'pageview');
 
     </script>
-    <script src="<?php echo $baseUrl ?>/bower_components/jquery/dist/jquery.js"></script>
+    <script src="<?php echo $this->Html->webroot; ?>bower_components/jquery/dist/jquery.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-default">
@@ -105,10 +104,10 @@ $cakeDescription = __d('cake_dev', '画像アップローダ');
     </footer>
 	<?php echo $this->element('sql_dump'); ?>
     <!-- bower:js -->
-    <script src="<?php echo $baseUrl ?>/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="<?php echo $baseUrl ?>/bower_components/jquery-ui/jquery-ui.js"></script>
-    <script src="<?php echo $baseUrl ?>/bower_components/sprintf/src/sprintf.js"></script>
-    <script src="<?php echo $baseUrl ?>/bower_components/lightbox2/dist/js/lightbox.js"></script>
+    <script src="<?php echo $this->Html->webroot; ?>./bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="<?php echo $this->Html->webroot; ?>./bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="<?php echo $this->Html->webroot; ?>./bower_components/sprintf/src/sprintf.js"></script>
+    <script src="<?php echo $this->Html->webroot; ?>./bower_components/lightbox2/dist/js/lightbox.js"></script>
     <!-- endbower -->
 </body>
 </html>

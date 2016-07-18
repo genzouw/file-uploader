@@ -15,8 +15,8 @@ module.exports = function(grunt) {
         fileTypes: {
           html: {
             replace: {
-              js: "<script src=\"/myapp{{filePath}}\"></script>",
-              css: "<link rel=\"stylesheet\" href=\"/myapp{{filePath}}\" />"
+              js: "<script src=\"<?php echo $this->Html->webroot; ?>.{{filePath}}\"></script>",
+              css: "<link rel=\"stylesheet\" href=\"<?php echo $this->Html->webroot; ?>.{{filePath}}\" />"
             }
           }
         }

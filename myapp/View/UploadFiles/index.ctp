@@ -18,8 +18,8 @@
 				<dt><?php echo __('Comment'); ?></dt>
 				<dd><?php echo h($uploadFile['UploadFile']['comment']) ?: 'なし'; ?>&nbsp;</dd>
 				<dd>
-                    <a href="./upload_files/getFile/<?php echo h($uploadFile['UploadFile']['file_name']); ?>" data-lightbox="group">
-                    <img src="./upload_files/getThumbnailFile/<?php echo h($uploadFile['UploadFile']['file_name']); ?>" class="thumbnail" />
+                    <a href="<?php echo $this->Html->webroot; ?>upload_files/getFile/<?php echo h($uploadFile['UploadFile']['file_name']); ?>" data-lightbox="group">
+                    <img src="<?php echo $this->Html->webroot; ?>upload_files/getThumbnailFile/<?php echo h($uploadFile['UploadFile']['file_name']); ?>" class="thumbnail" />
                     </a>
 				</dd>
 			</dl>
@@ -52,16 +52,6 @@
 <script>
 "use strict";
 ;$(function() {
-  // $("a > img").each(function() {
-    // var img = $(this).parent();
-    // var anchor = $(this).parent();
-    // anchor.on("click", function(e) {
-      // $(this).attr(
-        // 'href',
-        // $(this).find('img').attr('src')
-      // );
-    // });
-  // });
   lightbox.option({
     'fitImagesInViewport' : true,
     'wrapAround': true

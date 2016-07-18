@@ -20,7 +20,7 @@
                 </dd>
                 <dt><?php echo __('File Name'); ?></dt>
                 <dd>
-                    <a href="../getFile/<?php echo h($uploadFile['UploadFile']['file_name']); ?>"><?php echo h($uploadFile['UploadFile']['file_name']); ?></a>
+                    <a href="<?php echo $this->Html->webroot; ?>upload_files/getFile/<?php echo h($uploadFile['UploadFile']['file_name']); ?>"><?php echo h($uploadFile['UploadFile']['file_name']); ?></a>
                     &nbsp;
                 </dd>
                 <dt><?php echo __('Base64 Content'); ?></dt>
