@@ -18,6 +18,5 @@
     "sprintf": "~1.0.3",
     "lightbox2": "^2.8.2"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

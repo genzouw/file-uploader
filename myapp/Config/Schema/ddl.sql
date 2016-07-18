@@ -11,3 +11,6 @@ CREATE TABLE upload_files (
     updated_at datetime default null
 );
 
+create unique index uq_upload_files_file_name
+    on upload_files (file_name)
+;

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "03cca31733d3ff735f2049c9b4fd1a29",
-    "content-hash": "e153da8ec74dd7ab462f5f48d4b57c43",
+    "hash": "d2913d78c35e61fe1e78a97ab22c4308",
+    "content-hash": "74da116c3693f1b3bf5644ae260d4c05",
     "packages": [
         {
             "name": "cakephp/cakephp",
@@ -103,6 +103,50 @@
                 "instantiate"
             ],
             "time": "2015-06-14 21:17:01"
+        },
+        {
+            "name": "eventviva/php-image-resize",
+            "version": "1.5.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eventviva/php-image-resize.git",
+                "reference": "41e2bbc8dbbf43b9a78bf56095e33d5398eeb056"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eventviva/php-image-resize/zipball/41e2bbc8dbbf43b9a78bf56095e33d5398eeb056",
+                "reference": "41e2bbc8dbbf43b9a78bf56095e33d5398eeb056",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aditya Patadia",
+                    "homepage": "http://aditya.patadia.org/"
+                }
+            ],
+            "description": "PHP class to re-size and scale images",
+            "homepage": "https://github.com/eventviva/php-image-resize",
+            "keywords": [
+                "image",
+                "php",
+                "resize",
+                "scale"
+            ],
+            "time": "2016-05-06 08:00:50"
         },
         {
             "name": "myclabs/deep-copy",

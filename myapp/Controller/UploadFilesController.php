@@ -1,5 +1,8 @@
 <?php
 App::uses('AppController', 'Controller');
+
+use Eventviva\ImageResize;
+
 /**
  * UploadFiles Controller
  *
@@ -41,12 +44,6 @@ class UploadFilesController extends AppController
     {
         $this->UploadFile->recursive = 0;
         $uploadFiles = $this->Paginator->paginate();
-        if (Configure::read('debug') === 0) {
-            $this->response->etag($this->UploadFile->generateHash($uploadFiles));
-            if ($this->response->checkNotModified($this->request)) {
-                return $this->response;
-            }
-        }
         $this->set('uploadFiles', $this->Paginator->paginate());
     }
 
@@ -109,6 +106,12 @@ class UploadFilesController extends AppController
         }
     }
 
+    /**
+     * getFile.
+     *
+     * @param mixed $fileName
+     * @return void
+     */
     public function getFile($fileName = null)
     {
         $this->autoRender = false;
@@ -119,6 +122,13 @@ class UploadFilesController extends AppController
             ),
         ));
 
+        if (Configure::read('debug') === 0) {
+            $this->response->etag($data['UploadFile']['updated_at']);
+            if ($this->response->checkNotModified($this->request)) {
+                return $this->response;
+            }
+        }
+
         if (empty($data)) {
             throw new NotFoundException(__('Invalid upload file'));
         }
@@ -127,6 +137,44 @@ class UploadFilesController extends AppController
         $this->response->type($data['UploadFile']['mime_type']);
 
         // $this->response->
-        $this->response->body(base64_decode($data['UploadFile']['base64_content']));
+        $this->response->body(base64_decode($data['UploadFile']['base64_content'], true));
+    }
+
+    /**
+     * getThumbnailFile.
+     *
+     * @param mixed $fileName
+     * @return void
+     */
+    public function getThumbnailFile($fileName = null)
+    {
+        $this->autoRender = false;
+
+        $data = $this->UploadFile->find('first', array(
+            'conditions' => array(
+                'file_name' => $fileName,
+            ),
+        ));
+
+        if (Configure::read('debug') === 0) {
+            $this->response->etag($data['UploadFile']['updated_at']);
+            if ($this->response->checkNotModified($this->request)) {
+                return $this->response;
+            }
+        }
+
+        if (empty($data)) {
+            throw new NotFoundException(__('Invalid upload file'));
+        }
+        // echo '<pre>'; var_dump($data); echo '</pre>';die();
+
+        $this->response->type($data['UploadFile']['mime_type']);
+
+        $image = ImageResize::createFromString(base64_decode($data['UploadFile']['base64_content'], true));
+        // $image->scale(25);
+        $image->resizeToWidth(300);
+
+        // $this->response->
+        $this->response->body($image->getImageAsString());
     }
 }

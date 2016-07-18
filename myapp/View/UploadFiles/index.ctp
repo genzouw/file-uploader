@@ -18,7 +18,9 @@
 				<dt><?php echo __('Comment'); ?></dt>
 				<dd><?php echo h($uploadFile['UploadFile']['comment']) ?: 'なし'; ?>&nbsp;</dd>
 				<dd>
-					<a href="data:image/png;base64,<?php echo h($uploadFile['UploadFile']['base64_content']); ?>" data-lightbox="group"><img src="data:image/png;base64,<?php echo h($uploadFile['UploadFile']['base64_content']); ?>" class="thumbnail" />&nbsp;</a>
+                    <a href="./upload_files/getFile/<?php echo h($uploadFile['UploadFile']['file_name']); ?>" data-lightbox="group">
+                    <img src="./upload_files/getThumbnailFile/<?php echo h($uploadFile['UploadFile']['file_name']); ?>" class="thumbnail" />
+                    </a>
 				</dd>
 			</dl>
 		</div>
