@@ -60,7 +60,14 @@ class UploadFilesController extends AppController
             throw new NotFoundException(__('Invalid upload file'));
         }
         $options = array('conditions' => array('UploadFile.' . $this->UploadFile->primaryKey => $id));
-        $this->set('uploadFile', $this->UploadFile->find('first', $options));
+        $uploadFile = $this->UploadFile->find('first', $options);
+        if (Configure::read('debug') === 0) {
+            $this->response->etag($this->UploadFile->generateHash($uploadFile));
+            if ($this->response->checkNotModified($this->request)) {
+                return $this->response;
+            }
+        }
+        $this->set('uploadFile', $uploadFile);
     }
 
     /**
