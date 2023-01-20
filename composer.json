@@ -1,6 +1,6 @@
 {
     "require": {
-        "cakephp/cakephp": "4.3.9",
+        "cakephp/cakephp": "4.3.11",
         "phpunit/phpunit": "^5.4",
         "eventviva/php-image-resize": "^1.5"
     }
